@@ -17,7 +17,6 @@ package com.example.android.quakereport;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -32,24 +31,17 @@ public class EarthquakeActivity extends AppCompatActivity {
         setContentView(R.layout.earthquake_activity);
 
         // Create a fake list of earthquake locations.
-        ArrayList<String> earthquakes = new ArrayList<>();
-        earthquakes.add("San Francisco");
-        earthquakes.add("London");
-        earthquakes.add("Tokyo");
-        earthquakes.add("Mexico City");
-        earthquakes.add("Moscow");
-        earthquakes.add("Rio de Janeiro");
-        earthquakes.add("Paris");
+        ArrayList<DetailsOfEarthquake> earthquakes = new ArrayList<>();
+        earthquakes.add(new DetailsOfEarthquake("San Francisco", "1.1","2016-09-07"));
+        earthquakes.add(new DetailsOfEarthquake("London", "1.3","2016-09-07"));
+        earthquakes.add(new DetailsOfEarthquake("Tokyo", "2.1","2016-09-07"));
+        earthquakes.add(new DetailsOfEarthquake("Mexico City",  "2.1","2016-09-07"));
+        earthquakes.add(new DetailsOfEarthquake("Moscow",  "1.6","2016-09-07"));
+        earthquakes.add(new DetailsOfEarthquake("Rio de Janeiro",  "0.1","2016-09-07"));
+        earthquakes.add(new DetailsOfEarthquake("Paris",  "1.5","2016-09-07"));
 
-        // Find a reference to the {@link ListView} in the layout
-        ListView earthquakeListView = (ListView) findViewById(R.id.list);
-
-        // Create a new {@link ArrayAdapter} of earthquakes
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_list_item_1, earthquakes);
-
-        // Set the adapter on the {@link ListView}
-        // so the list can be populated in the user interface
-        earthquakeListView.setAdapter(adapter);
+        DetailsOfEarthQuakeAdapter detailsOfEarthQuakeAdapter = new DetailsOfEarthQuakeAdapter(this,earthquakes);
+        ListView listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(detailsOfEarthQuakeAdapter);
     }
 }
