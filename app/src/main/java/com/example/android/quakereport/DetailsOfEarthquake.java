@@ -7,12 +7,12 @@ public class DetailsOfEarthquake {
 
     private String location;
     private String mag;
-    private String date;
+    private long timeInMilliseconds;
 
-    public DetailsOfEarthquake(String location, String mag, String date) {
+    public DetailsOfEarthquake(String location, String mag, long timeInMilliseconds) {
         this.location = location;
         this.mag = mag;
-        this.date = date;
+        this.timeInMilliseconds = timeInMilliseconds;
     }
 
     public String getLocation() {
@@ -23,7 +23,7 @@ public class DetailsOfEarthquake {
         return mag;
     }
 
-    public String getDate() {
-        return date;
+    public long getTimeInMilliseconds() {
+        return timeInMilliseconds;
     }
 }
