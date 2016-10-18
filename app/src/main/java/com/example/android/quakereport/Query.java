@@ -47,6 +47,8 @@ public final class Query {
                 //the properties of an earthquake
                 String mag = properties.optString("mag").toString();
                 String place = properties.optString("place").toString();
+
+                //extract the value for the key called "time"
                 long time = properties.getLong("time");
                 //creating an earthquake object
                 DetailsOfEarthquake oneEarthquake = new DetailsOfEarthquake(place,mag,time);
