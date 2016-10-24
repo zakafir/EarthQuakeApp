@@ -1,5 +1,7 @@
 package com.example.android.quakereport;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,13 +47,15 @@ public final class Query {
                 JSONObject properties = node.getJSONObject("properties");
 
                 //the properties of an earthquake
-                String mag = properties.optString("mag").toString();
+                double mag = properties.getDouble("mag");
                 String place = properties.optString("place").toString();
+                String url = properties.optString("url").toString();
+                Log.v("Testing url: ",url);
 
                 //extract the value for the key called "time"
                 long time = properties.getLong("time");
                 //creating an earthquake object
-                DetailsOfEarthquake oneEarthquake = new DetailsOfEarthquake(place,mag,time);
+                DetailsOfEarthquake oneEarthquake = new DetailsOfEarthquake(place,mag,time,url);
 
                 //add One Earthquake to the list of Earthquakes
                 earthquakes.add(oneEarthquake);
