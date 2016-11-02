@@ -1,7 +1,5 @@
 package com.example.android.quakereport;
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,7 +48,6 @@ public final class Query {
                 double mag = properties.getDouble("mag");
                 String place = properties.optString("place").toString();
                 String url = properties.optString("url").toString();
-                Log.v("Testing url: ",url);
 
                 //extract the value for the key called "time"
                 long time = properties.getLong("time");
