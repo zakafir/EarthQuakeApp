@@ -30,6 +30,7 @@ public final class Query {
 
     }
 
+
     //this method get throw JSON nodes to get the properties of an earthquake
     public static ArrayList<DetailsOfEarthquake> extractFeatureFromJson(String earthquakeJSON)
     {
@@ -78,6 +79,11 @@ public final class Query {
      * Query the USGS dataset and return an {@link List<DetailsOfEarthquake>} object to represent a single earthquake.
      */
     public static List<DetailsOfEarthquake> fetchEarthquakeData(String requestUrl) {
+        try{
+            Thread.sleep(2000);
+        }catch(InterruptedException e){
+            e.printStackTrace();
+        }
         // Create URL object
         URL url = createUrl(requestUrl);
 
